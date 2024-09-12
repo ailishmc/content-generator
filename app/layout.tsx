@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ClerkProvider } from '@clerk/nextjs';
 import localFont from "next/font/local";
+import { Outfit } from "next/font/google"
 import "./globals.css";
 
 const geistSans = localFont({
@@ -13,6 +14,8 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
+
+const outfit = Outfit({subsets: ["latin"]});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -28,7 +31,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+          className={outfit.className}
         >
           {children}
         </body>
